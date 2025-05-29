@@ -1,0 +1,11 @@
+<h2>Resultado</h2>
+<p><strong>Pregunta:</strong> {{ enunciado }}</p>
+
+{% if resultado %}
+  <p style="color: green;">✅ ¡Correcto!</p>
+{% else %}
+  <p style="color: red;">❌ Incorrecto. La respuesta correcta era: <strong>{{ correcta }}) {{ opciones[correcta] }}</strong></p>
+  <p>Tu respuesta: {{ seleccionada }}) {{ opciones[seleccionada] }}</p>
+{% endif %}
+
+<a href="{{ url_for('practicar', año=año) }}">Siguiente pregunta del {{ año }}</a>

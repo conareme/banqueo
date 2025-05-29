@@ -1,0 +1,13 @@
+<h2>{{ pregunta['enunciado'] }}</h2>
+
+<form action="{{ url_for('respuesta') }}" method="post">
+  {% for letra, texto in pregunta['opciones'].items() %}
+    <input type="radio" name="respuesta" value="{{ letra }}" required> ({{ letra }}) {{ texto }}<br>
+  {% endfor %}
+
+  <input type="hidden" name="correcta" value="{{ pregunta['respuesta'] }}">
+  <input type="hidden" name="año" value="{{ año }}">
+  <input type="hidden" name="enunciado" value="{{ pregunta['enunciado'] }}">
+  <input type="hidden" name="opciones" value="{{ pregunta['opciones'] | tojson }}">
+  <button type="submit">Enviar respuesta</button>
+</form>

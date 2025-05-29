@@ -1,0 +1,7 @@
+<h1>Simulador CONAREME</h1>
+<h3>Seleccione el año del examen:</h3>
+<ul>
+  {% for año in años %}
+    <li><a href="{{ url_for('practicar', año=año) }}">Examen {{ año }}</a></li>
+  {% endfor %}
+</ul>
